@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A4023D132A57FA7700D91FF2 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4023D122A57FA7700D91FF2 /* Alert.swift */; };
 		A470C25F2A57312A00DE2994 /* TicTacToeSwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A470C25E2A57312A00DE2994 /* TicTacToeSwiftApp.swift */; };
 		A470C2612A57312A00DE2994 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A470C2602A57312A00DE2994 /* ContentView.swift */; };
 		A470C2632A57312B00DE2994 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A470C2622A57312B00DE2994 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A4023D122A57FA7700D91FF2 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		A470C25B2A57312A00DE2994 /* TicTacToeSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToeSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A470C25E2A57312A00DE2994 /* TicTacToeSwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeSwiftApp.swift; sourceTree = "<group>"; };
 		A470C2602A57312A00DE2994 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,6 +53,7 @@
 		A470C25D2A57312A00DE2994 /* TicTacToeSwift */ = {
 			isa = PBXGroup;
 			children = (
+				A4023D122A57FA7700D91FF2 /* Alert.swift */,
 				A470C25E2A57312A00DE2994 /* TicTacToeSwiftApp.swift */,
 				A470C2602A57312A00DE2994 /* ContentView.swift */,
 				A470C2622A57312B00DE2994 /* Assets.xcassets */,
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4023D132A57FA7700D91FF2 /* Alert.swift in Sources */,
 				A470C2612A57312A00DE2994 /* ContentView.swift in Sources */,
 				A470C25F2A57312A00DE2994 /* TicTacToeSwiftApp.swift in Sources */,
 			);

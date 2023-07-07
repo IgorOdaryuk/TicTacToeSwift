@@ -14,6 +14,7 @@ let columns: [GridItem] = [GridItem(.flexible()),                   GridItem(.fl
     
     @State private var moves: [Move?] = Array(repeating: nil, count: 9)
     @State private var isGameboardDisabled = false
+    @State private var alertItem: AlertItem?
 
     var body: some View {
     GeometryReader { geometry in
@@ -34,19 +35,23 @@ let columns: [GridItem] = [GridItem(.flexible()),                   GridItem(.fl
                     .onTapGesture {
                         if isSquareOccupied(in: moves, forIndex: i) { return }
                         moves[i] = Move(player: .human, boardIndex: i)
-                        isGameboardDisabled = true
+                        
                         
                         //computer get moves
                         
                         if checkWinCondition(for: .human, in: moves) {
-                            print("Human Moves")
+                            //print("Human Moves")
+                            alertItem = AlertContext.humanWin
                             return
                         }
                         
                         if checkForDraw(in: moves) {
-                            print("draw")
+                            //print("draw")
+                            alertItem = AlertContext.draw
                             return
                         }
+                        
+                        isGameboardDisabled = true
                         
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                             let computerPosition = determineComputerMovePosition(in: moves)
@@ -54,12 +59,14 @@ let columns: [GridItem] = [GridItem(.flexible()),                   GridItem(.fl
                             isGameboardDisabled = false
                             
                             if checkWinCondition(for: .computer, in: moves) {
-                                print("Computer Wins")
+                                //print("Computer Wins")
+                                alertItem = AlertContext.computerWin
                                 return
                               }
                             
                             if checkForDraw(in: moves) {
-                                print("draw")
+                                //print("draw")
+                                alertItem = AlertContext.draw
                                 return
                                }
                            }
@@ -70,7 +77,11 @@ let columns: [GridItem] = [GridItem(.flexible()),                   GridItem(.fl
           }
         .disabled(isGameboardDisabled)
         .padding()
-        
+        .alert(item: $alertItem, content: { alertItem in
+            Alert(title: alertItem.title,
+                  message: alertItem.message,
+                  dismissButton: .default(alertItem.buttonTitle, action: { resetGame() }))
+        })
         }
     }
     
@@ -99,6 +110,10 @@ let columns: [GridItem] = [GridItem(.flexible()),                   GridItem(.fl
     
     func checkForDraw(in moves: [Move?]) -> Bool {
         return moves.compactMap { $0 }.count == 9
+    }
+    
+    func resetGame() {
+        moves = Array(repeating: nil, count: 9)
     }
 }
 
